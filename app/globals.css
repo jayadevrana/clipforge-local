@@ -1,0 +1,100 @@
+@import "tailwindcss";
+
+:root {
+  --background: #120f0d;
+  --foreground: #f6f0e8;
+  --surface: rgba(255, 248, 238, 0.06);
+  --surface-strong: rgba(255, 248, 238, 0.1);
+  --line: rgba(255, 248, 238, 0.12);
+  --accent: #e9c7a3;
+  --accent-strong: #f4e8d9;
+  --muted: rgba(246, 240, 232, 0.64);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-space-grotesk);
+  --font-mono: var(--font-jetbrains-mono);
+  --font-serif: var(--font-fraunces);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #120f0d;
+    --foreground: #f6f0e8;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-space-grotesk), sans-serif;
+  background-image:
+    radial-gradient(circle at 15% 10%, rgba(233, 199, 163, 0.15), transparent 24%),
+    radial-gradient(circle at 85% 18%, rgba(165, 122, 89, 0.18), transparent 18%),
+    linear-gradient(180deg, #16110e 0%, #110e0c 42%, #0d0b09 100%);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body::selection {
+  background: rgba(233, 199, 163, 0.28);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+@keyframes drift {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(0, -10px, 0);
+  }
+}
+
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 18px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.float-slow {
+  animation: drift 9s ease-in-out infinite;
+}
+
+.rise-in {
+  animation: rise-in 0.8s ease-out both;
+}
+
+.grain-overlay {
+  position: relative;
+}
+
+.grain-overlay::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.12;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.9), transparent 96%);
+}

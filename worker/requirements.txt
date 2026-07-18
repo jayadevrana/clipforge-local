@@ -1,0 +1,5 @@
+yt-dlp>=2025.3.31
+numpy>=1.26,<3
+Pillow>=10.4,<12
+faster-whisper>=1.2,<2
+pytubefix>=10.3.8,<11

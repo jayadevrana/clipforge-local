@@ -1,0 +1,47 @@
+# dependencies
+node_modules/
+/.pnp
+.pnp.*
+
+# next.js
+.next/
+out/
+
+# production
+build/
+dist/
+
+# python
+__pycache__/
+*.pyc
+.venv/
+venv/
+env/
+
+# env files
+.env
+.env.*
+!.env.example
+
+# databases
+*.sqlite
+*.sqlite3
+*.db
+
+# runtime output
+storage/jobs/*
+!storage/jobs/.gitkeep
+storage/outputs/
+storage/tmp/
+
+# misc
+.DS_Store
+*.pem
+*.log
+
+# vercel
+.vercel
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
